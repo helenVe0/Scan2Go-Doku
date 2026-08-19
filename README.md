@@ -2,15 +2,13 @@
 
 Scan2Go answers one question: **when do I have to leave home to catch my train?**
 
+You can find the demo video here: https://www.loom.com/share/d9a73f5ff9c84db2bda26ea312fe427e
+
 The idea is a screen in a public place. It shows a QR code, you scan it with your phone and
 type in your home address, then pick your departure station, your destination, the day and
 the time you want to arrive. A few seconds later the screen shows one big number: when you
 have to walk out of your door. Everything the user does happens by scanning QR codes, so
 the display itself needs neither a keyboard nor a touchscreen.
-
-It is a CPEE process. CPEE does the orchestration and holds the data, the pages are static
-HTML shown through CPEE's frames service, and the two calculations that were awkward to do
-inside the process live in a small Python service on the course server.
 
 ## Where everything lives
 
