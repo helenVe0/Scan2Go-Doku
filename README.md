@@ -37,10 +37,11 @@ defined end can be started as a subprocess, and a caller that wants a screen run
 day puts the loop on its side and calls this one over and over. It also means the end of
 the process is actually reachable, which it is not if the process loops forever.
 
-The pause at the end that keeps the result on screen is split into three calls of 30
-seconds instead of one of 90. A `timeout` call longer than about a minute never comes back:
-the callback is cut at 60 seconds and the engine stops the instance in the middle of the
-wait. 30, 45 and 55 seconds all work, 60 and above do not.
+The pause at the end keeps the result on screen for 90 seconds. It is one `timeout` call,
+and that is worth knowing about: an instance stops at exactly 60 seconds inside such a
+call, on `stopped`, without an error message, and the step after the wait is never
+reached. Calls of 30, 45 and 55 seconds run through, 60 and 90 do not. Splitting the pause
+into three calls of 30 seconds gives the same 90 seconds and avoids that.
 
 | Step | Call | Writes |
 |---|---|---|
