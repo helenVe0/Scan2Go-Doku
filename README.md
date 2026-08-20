@@ -32,16 +32,8 @@ the display itself needs neither a keyboard nor a touchscreen.
 ## One session, step by step
 
 The process starts with `Init Frame`, which reserves a 1×1 frame on the display, and then
-runs exactly one session and ends. There is no loop around it on purpose: a process with a
-defined end can be started as a subprocess, and a caller that wants a screen running all
-day puts the loop on its side and calls this one over and over. It also means the end of
-the process is actually reachable, which it is not if the process loops forever.
+runs exactly one session and ends.
 
-The pause at the end keeps the result on screen for 90 seconds. It is one `timeout` call,
-and that is worth knowing about: an instance stops at exactly 60 seconds inside such a
-call, on `stopped`, without an error message, and the step after the wait is never
-reached. Calls of 30, 45 and 55 seconds run through, 60 and 90 do not. Splitting the pause
-into three calls of 30 seconds gives the same 90 seconds and avoids that.
 
 | Step | Call | Writes |
 |---|---|---|
@@ -63,8 +55,7 @@ attached. The address is the only thing the user has to type, so it is the only 
 runs on the phone; everything after that is scanning.
 
 **The station lookup** takes the whole address and returns up to six stations, and the user
-picks one by scanning. I did not want to guess the departure station from the address,
-because for anybody living between two stations the guess would be wrong half the time.
+picks one by scanning. 
 
 **Both geocodings** go to Nominatim, one for the station the user picked, one for the
 destination. They store `nil` when Nominatim has no match, which is what the check behind
