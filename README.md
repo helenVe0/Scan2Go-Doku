@@ -2,7 +2,7 @@
 
 Scan2Go answers one question: **when do I have to leave home to catch my train?**
 
-You can find the demo video here: https://www.loom.com/share/d9a73f5ff9c84db2bda26ea312fe427e
+You can find the demo video here: https://www.loom.com/share/8d867c15d79941b197c76cbc0481f413
 
 The idea is a screen in a public place. It shows a QR code, you scan it with your phone and
 type in your home address, then pick your departure station, your destination, the day and
