@@ -143,9 +143,7 @@ data.last_interaction = ( Time.now.to_i - 60 )
 ```
 
 Backdating the timestamp makes the watchdog trip on its next tick, so it finishes and
-cancels the planning branch. That is the reason the error paths do not need their own route
-to the error page: CPEE has no clean way to end a single branch early, so instead of
-jumping out I let the other branch pull the plug. The ten second wait behind each error
+cancels the planning branch. The ten second wait behind each error
 path is only there to outlast that, otherwise the planning would carry on with an empty
 result and, for example, geocode the station from the previous session.
 
