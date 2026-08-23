@@ -59,8 +59,8 @@ picks one by scanning.
 
 **Both geocodings** go to Nominatim, one for the station the user picked, one for the
 destination. They store `nil` when Nominatim has no match, which is what the check behind
-each call looks for. Reading `result[0]["lat"]` straight away is shorter but raises an
-exception before the gateway that is supposed to catch exactly that case.
+each call looks for. The shorter `result[0]["lat"]` cannot do that: on an empty answer it
+raises before anything is stored, so the check has nothing to look at.
 
 **Date and time** are two separate pages because eight times times seven days would be 56
 QR codes on one screen. The time page also builds `arrival_time`, the timestamp the
